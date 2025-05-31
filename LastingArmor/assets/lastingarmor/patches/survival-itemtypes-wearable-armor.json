@@ -1,0 +1,352 @@
+[
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-antique-blackguard-broken",
+    "value": 12000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-antique-blackguard-damaged",
+    "value": 18000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-antique-blackguard-pristine",
+    "value": 36000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-antique-forlorn-broken",
+    "value": 10000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-antique-forlorn-damaged",
+    "value": 20000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-antique-forlorn-pristine",
+    "value": 32000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-brigandine-bismuthbronze",
+    "value": 21000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-brigandine-blackbronze",
+    "value": 24000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-brigandine-copper",
+    "value": 18000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-brigandine-iron",
+    "value": 26000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-brigandine-meteoriciron",
+    "value": 30000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-brigandine-steel",
+    "value": 52000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-brigandine-tinbronze",
+    "value": 22000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-chain-bismuthbronze",
+    "value": 13000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-chain-blackbronze",
+    "value": 15000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-chain-copper",
+    "value": 12000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-chain-gold",
+    "value": 10000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-chain-iron",
+    "value": 16000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-chain-meteoriciron",
+    "value": 18000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-chain-silver",
+    "value": 14000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-chain-steel",
+    "value": 40000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-chain-tinbronze",
+    "value": 14000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-improvised-wood",
+    "value": 1500,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-jerkin-leather",
+    "value": 5000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-lamellar-bismuthbronze",
+    "value": 10500,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-lamellar-blackbronze",
+    "value": 13500,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-lamellar-copper",
+    "value": 9000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-lamellar-iron",
+    "value": 16000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-lamellar-steel",
+    "value": 32000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-lamellar-tinbronze",
+    "value": 12000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-lamellar-wood",
+    "value": 4000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-plate-bismuthbronze",
+    "value": 18000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-plate-blackbronze",
+    "value": 24000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-plate-copper",
+    "value": 10000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-plate-gold",
+    "value": 8000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-plate-iron",
+    "value": 44000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-plate-meteoriciron",
+    "value": 56000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-plate-silver",
+    "value": 20000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-plate-steel",
+    "value": 110000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-plate-tinbronze",
+    "value": 20000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-scale-bismuthbronze",
+    "value": 23000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-scale-blackbronze",
+    "value": 26000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-scale-copper",
+    "value": 16000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-scale-iron",
+    "value": 28000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-scale-meteoriciron",
+    "value": 34000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-scale-steel",
+    "value": 70000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-scale-tinbronze",
+    "value": 24000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-sewn-leather",
+    "value": 14000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-sewn-linen",
+    "value": 18000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/armor-*-tailored-*-linen",
+    "value": 18000,
+    "file": "game:itemtypes/wearable/armor.json",
+    "side": "Server"
+  }
+]

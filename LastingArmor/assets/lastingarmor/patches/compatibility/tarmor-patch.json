@@ -1,0 +1,34 @@
+[
+	{
+		"side": "Server",
+		"op": "replace",
+		"path": "/17/value",
+		"value": 80000,
+		"file": "patches/titanarmor.json",
+		"dependsOn": [{ "modid": "tarmor"}]
+	},	
+	{
+		"side": "Server",
+		"op": "replace",
+		"path": "/durabilityByType/armor-*-chain-titanium",
+		"value": 80000,
+		"file": "itemtypes/wearable/armor.json",
+		"dependsOn": [{ "modid": "tarmor"}]
+	},
+	{
+		"side": "Server",
+		"op": "add",
+		"path": "/32/value",
+		"value": 110000,
+		"file": "patches/titanarmor.json",
+		"dependsOn": [{ "modid": "tarmor"}]
+	},	
+	{
+		"side": "Server",
+		"op": "replace",
+		"path": "/durabilityByType/armor-*-plate-titanium",
+		"value": 110000,
+		"file": "itemtypes/wearable/armor.json",
+		"dependsOn": [{ "modid": "tarmor"}]
+	}
+]

@@ -1,13 +1,19 @@
 {
-    "type": "code",
-    "modid": "lastingarmor",
-    "name": "LastingArmor",
-    "authors": [
-        "Unknown"
+    "Type": "code",
+    "TextureSize": 32,
+    "Name": "Lasting Armor",
+    "Version": "2.0.0",
+    "NetworkVersion": null,
+    "Description": "Makes armor affected by the world tool durability multiplier.",
+    "Website": "https://mods.vintagestory.at/lastingarmor",
+    "CoreMod": false,
+    "ModID": "lastingarmor",
+    "Authors": [
+    "NerArth"
     ],
-    "description": "To be added",
-    "version": "1.0.0",
-    "dependencies": {
-        "game": ""
-    }
+    "Contributors": [],
+    "Side": "Server",
+    "RequiredOnClient": false,
+    "RequiredOnServer": true,
+    "Dependencies": {}
 }

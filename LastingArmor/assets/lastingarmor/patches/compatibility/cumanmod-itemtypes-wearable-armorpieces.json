@@ -1,0 +1,44 @@
+[
+  {
+    "op": "replace",
+    "path": "/durabilityByType/*",
+    "value": 25000,
+    "file": "cumanmod:itemtypes/wearable/cumanface.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/*",
+    "value": 35000,
+    "file": "cumanmod:itemtypes/wearable/cumanfacehelm.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/*",
+    "value": 31000,
+    "file": "cumanmod:itemtypes/wearable/cumanhelm.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/*",
+    "value": 25000,
+    "file": "cumanmod:itemtypes/wearable/cumanlamel.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/*",
+    "value": 18000,
+    "file": "cumanmod:itemtypes/wearable/haubrek.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/durabilityByType/*",
+    "value": 25000,
+    "file": "cumanmod:itemtypes/wearable/shishak.json",
+    "side": "Server"
+  }
+]

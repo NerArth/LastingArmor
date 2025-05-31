@@ -1,0 +1,58 @@
+[
+    {
+        "op": "replace",
+        "path": "/durabilityByType/tailoredbrigandine-*-leather-*",
+        "value": 5000,
+        "file": "litbrig:itemtypes/wearable/tailored-brigandine.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/tailoredbrigandine-*-copper-*",
+        "value": 21000,
+        "file": "litbrig:itemtypes/wearable/tailored-brigandine.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/tailoredbrigandine-*-tinbronze-*",
+        "value": 27000,
+        "file": "litbrig:itemtypes/wearable/tailored-brigandine.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/tailoredbrigandine-*-bismuthbronze-*",
+        "value": 26000,
+        "file": "litbrig:itemtypes/wearable/tailored-brigandine.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/tailoredbrigandine-*-blackbronze-*",
+        "value": 29000,
+        "file": "litbrig:itemtypes/wearable/tailored-brigandine.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/tailoredbrigandine-*-iron-*",
+        "value": 31000,
+        "file": "litbrig:itemtypes/wearable/tailored-brigandine.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/tailoredbrigandine-*-meteoriciron-*",
+        "value": 35000,
+        "file": "litbrig:itemtypes/wearable/tailored-brigandine.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/tailoredbrigandine-*-steel-*",
+        "value": 57000,
+        "file": "litbrig:itemtypes/wearable/tailored-brigandine.json",
+        "side": "Server"
+    }
+]

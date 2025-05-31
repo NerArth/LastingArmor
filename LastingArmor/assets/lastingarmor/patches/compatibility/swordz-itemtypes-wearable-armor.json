@@ -1,0 +1,170 @@
+[
+    {
+        "op": "replace",
+        "path": "/durabilityByType/armor-*-chain-stainlesssteel",
+        "value": 50000,
+        "file": "swordz:itemtypes/wearable/armor.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/armor-*-chain-titanium",
+        "value": 70000,
+        "file": "swordz:itemtypes/wearable/armor.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/armor-*-chain-mithril",
+        "value": 100000,
+        "file": "swordz:itemtypes/wearable/armor.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/armor-*-chain-adamant",
+        "value": 150000,
+        "file": "swordz:itemtypes/wearable/armor.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/armor-*-chain-orichalcum",
+        "value": 200000,
+        "file": "swordz:itemtypes/wearable/armor.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/armor-*-chain-aithril",
+        "value": 210000,
+        "file": "swordz:itemtypes/wearable/armor.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/armor-*-brigandine-stainlesssteel",
+        "value": 60000,
+        "file": "swordz:itemtypes/wearable/armor.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/armor-*-brigandine-titanium",
+        "value": 80000,
+        "file": "swordz:itemtypes/wearable/armor.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/armor-*-brigandine-mithril",
+        "value": 110000,
+        "file": "swordz:itemtypes/wearable/armor.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/armor-*-brigandine-adamant",
+        "value": 155000,
+        "file": "swordz:itemtypes/wearable/armor.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/armor-*-brigandine-orichalcum",
+        "value": 210000,
+        "file": "swordz:itemtypes/wearable/armor.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/armor-*-brigandine-aithril",
+        "value": 220000,
+        "file": "swordz:itemtypes/wearable/armor.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/armor-*-scale-stainlesssteel",
+        "value": 80000,
+        "file": "swordz:itemtypes/wearable/armor.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/armor-*-scale-titanium",
+        "value": 100000,
+        "file": "swordz:itemtypes/wearable/armor.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/armor-*-scale-mithril",
+        "value": 120000,
+        "file": "swordz:itemtypes/wearable/armor.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/armor-*-scale-adamant",
+        "value": 160000,
+        "file": "swordz:itemtypes/wearable/armor.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/armor-*-scale-orichalcum",
+        "value": 220000,
+        "file": "swordz:itemtypes/wearable/armor.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/armor-*-scale-aithril",
+        "value": 230000,
+        "file": "swordz:itemtypes/wearable/armor.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/armor-*-plate-stainlesssteel",
+        "value": 120000,
+        "file": "swordz:itemtypes/wearable/armor.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/armor-*-plate-titanium",
+        "value": 140000,
+        "file": "swordz:itemtypes/wearable/armor.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/armor-*-plate-mithril",
+        "value": 160000,
+        "file": "swordz:itemtypes/wearable/armor.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/armor-*-plate-adamant",
+        "value": 200000,
+        "file": "swordz:itemtypes/wearable/armor.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/armor-*-plate-orichalcum",
+        "value": 250000,
+        "file": "swordz:itemtypes/wearable/armor.json",
+        "side": "Server"
+    },
+    {
+        "op": "replace",
+        "path": "/durabilityByType/armor-*-plate-aithril",
+        "value": 260000,
+        "file": "swordz:itemtypes/wearable/armor.json",
+        "side": "Server"
+    }
+]
