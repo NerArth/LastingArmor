@@ -83,7 +83,6 @@ namespace LastingArmor
                 System.Reflection.MethodInfo OriginalApplyConfigMethod = typeof(SurvivalCoreSystem).GetMethod("applyConfig", BindingFlags.Instance | BindingFlags.NonPublic);
 
                 api.Logger.Debug("Lasting Armor: Applying world config transpiler...");
-                //HI.Patch(OriginalApplyConfigMethod, transpiler: new HarmonyMethod(typeof(ApplyConfigTranspiler).GetMethod("Transpiler")));
                 HI.Patch(OriginalApplyConfigMethod, postfix: new HarmonyMethod(typeof(ApplyConfigPostfix).GetMethod("Postfix")));
             }
         }
@@ -114,7 +113,7 @@ namespace LastingArmor
     {
         public static void Postfix(SurvivalCoreSystem __instance)
         {
-            System.Diagnostics.Debug.Print("Lasting Armor: Postfix");
+            //System.Diagnostics.Debug.Print("Lasting Armor: Postfix");
             var multiplier = 20;
             // Access the api field via reflection since it's private
             var apiField = typeof(SurvivalCoreSystem).GetField("api", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
@@ -127,176 +126,10 @@ namespace LastingArmor
                     if (collectible.Class == "ItemWearable" && collectible.Durability > 1)
                     {
                          collectible.Durability = (int)((float)collectible.Durability * multiplier);
+                        api.Logger.Debug("Lasting Armor: Final durability {0} for [{1}]", collectible.Durability, collectible.Code,);
                     }
                 }
             }
         }
     }
-
-    [HarmonyPatch(typeof(SurvivalCoreSystem), "applyConfig")]
-    public class ApplyConfigTranspiler
-    {
-        public static IEnumerable<CodeInstruction> TranspilerDebug(IEnumerable<CodeInstruction> instructions)
-        {
-            foreach (var code in instructions)
-            {
-                System.Diagnostics.Debug.Print("Lasting Armor: Looking IN: {0}", code);
-                yield return code;
-            }
-        }
-
-        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-        {
-            var codes = new List<CodeInstruction>(instructions);
-            //for
-                
-            return codes; // No need to patch if the expected instruction is not present
-        }
-
-        public static IEnumerable<CodeInstruction> TranspilerOld(IEnumerable<CodeInstruction> instructions)
-        {
-            var codes = new List<CodeInstruction>(instructions);
-            //var objLocalIndex = -1;
-
-            // Find the local variable index for 'obj'
-            /*for (int i = 0; i < codes.Count; i++)
-            {
-                if (codes[i].opcode == OpCodes.Stloc_S && codes[i].operand is LocalBuilder lb)
-                {
-                    objLocalIndex = lb.LocalIndex;
-                    break;
-                }
-            }
-            if (objLocalIndex == -1) objLocalIndex = 4; // fallback*/
-
-            //var toolField = AccessTools.Field(typeof(CollectibleObject), "Tool");
-            //var durabilityField = AccessTools.Field(typeof(CollectibleObject), "Durability");
-            //var itemWearableType = typeof(Vintagestory.GameContent.ItemWearable);
-
-            //Label? labelFalse = null;
-            //bool pendingLabelFalse = false;
-
-            for (int i = 0; i < codes.Count; i++)
-            {
-                System.Diagnostics.Debug.Print("Lasting Armor: Looking IN: opcode[{1}] {0}", codes[i],i);
-                // Look for: ldloc.s, ldfld Tool, call get_HasValue, brfalse.s
-                if (
-                    i + 3 < codes.Count &&
-                    codes[i].opcode == OpCodes.Ldloc_1 && // or OpCodes.Ldloc_S, depending on local index
-                    codes[i + 1].opcode == OpCodes.Ldflda &&
-                    ((FieldInfo)codes[i + 1].operand).Name == "Tool" &&
-                    codes[i + 2].opcode == OpCodes.Call &&
-                    ((MethodInfo)codes[i + 2].operand).Name == "get_HasValue" &&
-                    codes[i + 3].opcode == OpCodes.Brfalse_S
-                )
-                {
-                    System.Diagnostics.Debug.Print("Lasting Armor: FOUND: opcode[{1}] {0}", codes[i],i);
-                    // Save the label for the false branch
-                    //labelFalse = (Label)codes[i + 3].operand;
-                    //var labelTrue = new Label();
-                    //System.Diagnostics.Debug.Print("Lasting Armor: labelFalse: {0}", labelFalse);
-                    //System.Diagnostics.Debug.Print("Lasting Armor: labelTrue: {0}", labelTrue);
-                    // if (collectible.Tool.HasValue) goto labelTrue;
-                    //yield return codes[i]; // ldloc.1
-                    //yield return codes[i + 1]; // ldflda Tool
-                    //yield return codes[i + 2]; // call get_HasValue
-                    //yield return new CodeInstruction(OpCodes.Brtrue_S, labelTrue);
-
-                    // if (!(collectible is ItemWearable)) goto labelFalse;
-                    //yield return new CodeInstruction(OpCodes.Ldloc_1)/*(OpCodes.Ldloc_S, ((LocalBuilder)codes[i].operand).LocalIndex)*/;
-                    //yield return new CodeInstruction(OpCodes.Isinst, typeof(Vintagestory.GameContent.ItemWearable));
-                    //yield return new CodeInstruction(OpCodes.Brfalse_S, labelFalse);
-
-                    // if (collectible.GetMaxDurability() >= 1) goto labelTrue;
-                    //yield return new CodeInstruction(OpCodes.Ldloc_1)/*(OpCodes.Ldloc_S, ((LocalBuilder)codes[i].operand).LocalIndex)*/;
-                    //yield return new CodeInstruction(OpCodes.Callvirt, typeof(CollectibleObject).GetMethod("GetMaxDurability"));
-                    //yield return new CodeInstruction(OpCodes.Ldc_I4_1);
-                    //yield return new CodeInstruction(OpCodes.Bge_S, labelTrue);
-
-                    // labelTrue:
-                    //codes[i + 4].labels.Add(labelTrue);
-
-                    //i += 3; // Skip the original 4 instructions
-                    //continue;
-                }
-
-                // Attach labelFalse to the first non-label, non-nop instruction after the injected block
-                /*if (pendingLabelFalse && labelFalse.HasValue)
-                {
-                    // Only attach to a real instruction (not a label or Nop)
-                    if (codes[i].opcode != OpCodes.Nop)
-                    {
-                        codes[i].labels.Add(labelFalse.Value);
-                        pendingLabelFalse = false;
-                        labelFalse = null;
-                    }
-                }*/
-
-                yield return codes[i];
-            }
-
-            /*for (int i = 0; i < codes.Count; i++)
-            {
-                // Look for the original: if (obj.Tool != null)
-                if (
-                    codes[i].opcode == OpCodes.Ldloc_S &&
-                    codes[i].operand is LocalBuilder lb2 &&
-                    lb2.LocalIndex == objLocalIndex &&
-                    i + 1 < codes.Count &&
-                    codes[i + 1].opcode == OpCodes.Ldfld &&
-                    ((FieldInfo)codes[i + 1].operand).Name == "Tool" &&
-                    i + 2 < codes.Count &&
-                    codes[i + 2].opcode == OpCodes.Ldnull
-                )
-                {
-                    // Remove the next 3 instructions (ldloc.s, ldfld Tool, ldnull)
-                    i += 2;
-
-                    // Insert our compound condition:
-                    // if (obj.Tool != null || (obj is ItemWearable && obj.Durability > 0))
-                    var labelTrue = codes[i + 1].labels.Count > 0 ? codes[i + 1].labels[0] : new Label();
-                    labelFalse = new Label();
-                    pendingLabelFalse = true;
-
-                    // if (obj.Tool != null) goto labelTrue;
-                    yield return new CodeInstruction(OpCodes.Ldloc_S, objLocalIndex);
-                    yield return new CodeInstruction(OpCodes.Ldfld, toolField);
-                    yield return new CodeInstruction(OpCodes.Brtrue_S, labelTrue);
-
-                    // if (!(obj is ItemWearable)) goto labelFalse;
-                    yield return new CodeInstruction(OpCodes.Ldloc_S, objLocalIndex);
-                    yield return new CodeInstruction(OpCodes.Isinst, itemWearableType);
-                    yield return new CodeInstruction(OpCodes.Brfalse_S, labelFalse);
-
-                    // if (obj.Durability >= 1) goto labelTrue;
-                    yield return new CodeInstruction(OpCodes.Ldloc_S, objLocalIndex);
-                    yield return new CodeInstruction(OpCodes.Callvirt, typeof(CollectibleObject).GetMethod("GetMaxDurability"));
-                    yield return new CodeInstruction(OpCodes.Ldc_I4_1);
-                    yield return new CodeInstruction(OpCodes.Blt_S, labelTrue);
-
-
-                    // labelTrue:
-                    codes[i + 1].labels.Add(labelTrue);
-
-                    continue;
-                }
-
-                // Attach labelFalse to the first non-label, non-nop instruction after the injected block
-                if (pendingLabelFalse && labelFalse.HasValue)
-                {
-                    // Only attach to a real instruction (not a label or Nop)
-                    if (codes[i].opcode != OpCodes.Nop)
-                    {
-                        codes[i].labels.Add(labelFalse.Value);
-                        pendingLabelFalse = false;
-                        labelFalse = null;
-                    }
-                }
-
-                yield return codes[i];
-            }*/
-        }
-    }
-
-
 }
