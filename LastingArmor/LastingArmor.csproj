@@ -65,4 +65,8 @@
         <Folder Include="Code\" />
     </ItemGroup>
 
+	<ItemGroup>
+		<None Include="modicondb.png"/>
+	</ItemGroup>
+
 </Project>
