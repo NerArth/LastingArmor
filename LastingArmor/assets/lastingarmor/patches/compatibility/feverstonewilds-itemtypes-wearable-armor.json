@@ -1,9 +1,0 @@
-[
-    {
-        "op": "replace",
-        "path": "/durabilityByType/*-hunterblack",
-        "value": 18000,
-        "file": "feverstonewilds:itemtypes/wearable/armor.json",
-        "side": "Server"
-    }
-]

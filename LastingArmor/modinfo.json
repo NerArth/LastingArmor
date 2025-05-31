@@ -4,7 +4,7 @@
     "Name": "Lasting Armor",
     "Version": "2.0.0",
     "NetworkVersion": null,
-    "Description": "Makes armor affected by the world tool durability multiplier.",
+    "Description": "Makes armor last a lifetime. (20x durability default)",
     "Website": "https://mods.vintagestory.at/lastingarmor",
     "CoreMod": false,
     "ModID": "lastingarmor",
