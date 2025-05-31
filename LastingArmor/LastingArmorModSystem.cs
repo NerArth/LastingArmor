@@ -79,10 +79,10 @@ namespace LastingArmor
 
             if (api.Side.IsServer()) // only apply the patch server side
             {
-                api.Logger.Debug("Lasting Armor: Getting original method...");
+                api.Logger.Debug("Lasting Armor: Looking for original Vintage Story code...");
                 System.Reflection.MethodInfo OriginalApplyConfigMethod = typeof(SurvivalCoreSystem).GetMethod("applyConfig", BindingFlags.Instance | BindingFlags.NonPublic);
 
-                api.Logger.Debug("Lasting Armor: Applying world config transpiler...");
+                api.Logger.Debug("Lasting Armor: Applying world config Harmony postfix...");
                 HI.Patch(OriginalApplyConfigMethod, postfix: new HarmonyMethod(typeof(ApplyConfigPostfix).GetMethod("Postfix")));
             }
         }
@@ -125,8 +125,8 @@ namespace LastingArmor
                 {
                     if (collectible.Class == "ItemWearable" && collectible.Durability > 1)
                     {
-                         collectible.Durability = (int)((float)collectible.Durability * multiplier);
-                        api.Logger.Debug("Lasting Armor: Final durability {0} for [{1}]", collectible.Durability, collectible.Code,);
+                        collectible.Durability = (int)((float)collectible.Durability * multiplier);
+                        api.Logger.Debug("Lasting Armor: Final durability set to {0} for [{1}]", collectible.Durability, collectible.Code);
                     }
                 }
             }
