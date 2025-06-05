@@ -20,75 +20,27 @@ namespace LastingArmor
     public class LastingArmorModSystem : ModSystem
     {
         private Harmony HI => new Harmony(Mod.Info.ModID);
+        public LastingArmorConfig ModConfig { get; private set; }
 
         public override void StartPre(ICoreAPI api)
         {
-            // Find and patch durability in all "itemtypes/wearables" JSON files
-            if (api is ICoreServerAPI sapi)
-            {
-/*
-                //var modPaths = sapi.GetModPaths();
-                *//*foreach (var modPath in modPaths)
-                {*//*
-                //var wearablesDir = System.IO.Path.Combine(api.GetOrCreateDataPath("cache"), "assets", "itemtypes", "wearables");
-                var CachePath = api.GetOrCreateDataPath("Cache");
-                if (!System.IO.Directory.Exists(CachePath)) api.Logger.Debug("'{0}' does not exist?",CachePath);
-                api.Logger.Debug("Lasting Armor: Cache Path: '{0}'", CachePath);
-
-                foreach (var key in System.IO.Directory.GetFiles(CachePath, "*.json", System.IO.SearchOption.AllDirectories))
-                {
-                    api.Logger.Debug("Lasting Armor: Array Key Value: {0}", key);
-                }
-
-                foreach (var file in System.IO.Directory.GetFiles(CachePath, "*.json", System.IO.SearchOption.AllDirectories))
-                {
-                    api.Logger.Debug("Lasting Armor: Processing file {0}", file);
-                    try
-                    {
-                        var json = System.IO.File.ReadAllText(file);
-                        var doc = JsonDocument.Parse(json);
-                        var root = doc.RootElement;
-
-                        if (root.TryGetProperty("class", out var JsonItemClass) && JsonItemClass.GetString() == "ItemWearable")
-                        {
-                            if (root.ValueKind == JsonValueKind.Object && root.TryGetProperty("durabilityByType", out var durabilityByTypeProp))
-                            {
-                                // Deserialize to a modifiable structure
-                                var dict = JsonSerializer.Deserialize<Dictionary<string, object>>(json);
-
-                                if (dict.TryGetValue("durabilityByType", out var durabilityObj) && durabilityObj is JsonElement durabilityElem && durabilityElem.ValueKind == JsonValueKind.Object)
-                                {
-                                    var durabilityDict = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
-                                    foreach (var prop in durabilityElem.EnumerateObject())
-                                    {
-                                        durabilityDict[prop.Name] = prop.Value.GetInt32() * 20;
-                                    }
-                                    dict["durabilityByType"] = durabilityDict;
-                                    var newJson = JsonSerializer.Serialize(dict, new JsonSerializerOptions { WriteIndented = true });
-                                    System.IO.File.WriteAllText(file, newJson);
-                                }
-                            }
-                        }
-                    }
-                    catch { *//* Ignore malformed files *//* }
-                }
-                //}
-*/
-            }
-
-
             if (api.Side.IsServer()) // only apply the patch server side
             {
-                api.Logger.Debug("Lasting Armor: Looking for original Vintage Story code...");
+                Mod.Logger.Event("Lasting Armor: Running pre-init phase...");
+
+                Mod.Logger.Debug("Lasting Armor: Looking for original Vintage Story code...");
                 System.Reflection.MethodInfo OriginalApplyConfigMethod = typeof(SurvivalCoreSystem).GetMethod("applyConfig", BindingFlags.Instance | BindingFlags.NonPublic);
 
-                api.Logger.Debug("Lasting Armor: Applying world config Harmony postfix...");
+                Mod.Logger.Debug("Lasting Armor: Applying world config Harmony postfix...");
                 HI.Patch(OriginalApplyConfigMethod, postfix: new HarmonyMethod(typeof(ApplyConfigPostfix).GetMethod("Postfix")));
             }
         }
 
         public override void Start(ICoreAPI api)
         {
+            api.Logger.Event("Lasting Armor: Running init phase and loading config...");
+            // Load the 
+            ModConfig = LoadConfiguration(api);
             //api.Logger.Notification("Hello from template mod: " + api.Side);
         }
 
@@ -105,6 +57,27 @@ namespace LastingArmor
         public override void Dispose()
         {
             HI.UnpatchAll(HI.Id);
+        }
+
+        private LastingArmorConfig LoadConfiguration(ICoreAPI api)
+        {
+            ModConfig = api.LoadModConfig<LastingArmorConfig>("LastingArmorConfig.json");
+            try
+            {
+                if (ModConfig is null)
+                {
+                    api.Logger.Debug("Lasting Armor: No config found, creating default LastingArmorConfig.json");
+
+                    ModConfig = new LastingArmorConfig();
+
+                    api.StoreModConfig(ModConfig, "LastingArmorConfig.json");
+                }
+            }
+            catch (Exception e)
+            {
+                Mod.Logger.Error("Lasting Armor: Error loading config: {0}", e.Message);
+            }
+            return ModConfig;
         }
     }
 
@@ -131,5 +104,11 @@ namespace LastingArmor
                 }
             }
         }
+    }
+
+    public class LastingArmorConfig
+    {
+        public int DurabilityMultiplier { get; set; } = 20; // Default multiplier
+        public bool EnableDurabilityScaling { get; set; } = false; // Default setting to enable durability scaling
     }
 }

@@ -2,7 +2,7 @@
     "Type": "code",
     "TextureSize": 32,
     "Name": "Lasting Armor",
-    "Version": "2.0.0",
+    "Version": "2.1.0",
     "NetworkVersion": null,
     "Description": "Makes armor last a lifetime. (20x durability default)",
     "Website": "https://mods.vintagestory.at/lastingarmor",
