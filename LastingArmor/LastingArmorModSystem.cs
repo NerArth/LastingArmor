@@ -1,19 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
-using System.Reflection.Emit;
 using HarmonyLib;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Server;
 using Vintagestory.API.Util;
-using Vintagestory.Common;
-using Vintagestory.API.Config;
-using Vintagestory.Datastructures;
 using Vintagestory.GameContent;
-using System.Text.Json;
-using System;
-using System.Diagnostics;
-using Vintagestory.ServerMods;
 
 namespace LastingArmor
 {
@@ -28,6 +21,8 @@ namespace LastingArmor
             {
                 Mod.Logger.Event("Lasting Armor: Running pre-init phase...");
 
+                ModConfig = LoadConfiguration(api);
+
                 Mod.Logger.Debug("Lasting Armor: Looking for original Vintage Story code...");
                 System.Reflection.MethodInfo OriginalApplyConfigMethod = typeof(SurvivalCoreSystem).GetMethod("applyConfig", BindingFlags.Instance | BindingFlags.NonPublic);
 
@@ -38,9 +33,8 @@ namespace LastingArmor
 
         public override void Start(ICoreAPI api)
         {
-            api.Logger.Event("Lasting Armor: Running init phase and loading config...");
-            // Load the 
-            ModConfig = LoadConfiguration(api);
+            //Mod.Logger.Event("Lasting Armor: Running init phase and loading config...");
+            
             //api.Logger.Notification("Hello from template mod: " + api.Side);
         }
 
@@ -62,8 +56,8 @@ namespace LastingArmor
         private LastingArmorConfig LoadConfiguration(ICoreAPI api)
         {
             ModConfig = api.LoadModConfig<LastingArmorConfig>("LastingArmorConfig.json");
-            try
-            {
+            //try
+            //{
                 if (ModConfig is null)
                 {
                     api.Logger.Debug("Lasting Armor: No config found, creating default LastingArmorConfig.json");
@@ -72,11 +66,11 @@ namespace LastingArmor
 
                     api.StoreModConfig(ModConfig, "LastingArmorConfig.json");
                 }
-            }
-            catch (Exception e)
-            {
-                Mod.Logger.Error("Lasting Armor: Error loading config: {0}", e.Message);
-            }
+            //}
+            //catch (Exception e)
+            //{
+            //Mod.Logger.Error("Lasting Armor: Error loading config: {0}", e.Message);
+            //}
             return ModConfig;
         }
     }
@@ -86,12 +80,23 @@ namespace LastingArmor
     {
         public static void Postfix(SurvivalCoreSystem __instance)
         {
-            //System.Diagnostics.Debug.Print("Lasting Armor: Postfix");
-            var multiplier = 20;
             // Access the api field via reflection since it's private
             var apiField = typeof(SurvivalCoreSystem).GetField("api", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
             var api = apiField?.GetValue(__instance) as ICoreAPI;
+            var worldConfig = api?.World?.Config;
 
+            // Get the loaded mod system instance from the API
+            var modSystem = api?.ModLoader.GetModSystem<LastingArmorModSystem>();
+            int multiplier;
+            if (modSystem?.ModConfig?.EnableWorldDurabilityScaling == true)
+            {
+                multiplier = worldConfig["toolDurability"].GetValue().ToString().ToInt();
+                //api.Logger.Debug("LastingArmor: {0}",multiplier);
+            }
+            else
+            {
+                multiplier = modSystem?.ModConfig?.DurabilityMultiplier ?? 20;
+            }
             if (api.Side.IsServer())
             {
                 foreach (CollectibleObject collectible in api.World.Collectibles)
@@ -108,7 +113,8 @@ namespace LastingArmor
 
     public class LastingArmorConfig
     {
+        public string CommentScaling { get; set; } = "Setting EnableWorldDurabilityScaling to true makes the mod ignore DurabilityMultiplier."; // Comment for the config file
         public int DurabilityMultiplier { get; set; } = 20; // Default multiplier
-        public bool EnableDurabilityScaling { get; set; } = false; // Default setting to enable durability scaling
+        public bool EnableWorldDurabilityScaling { get; set; } = false; // Default setting to enable durability scaling
     }
 }
