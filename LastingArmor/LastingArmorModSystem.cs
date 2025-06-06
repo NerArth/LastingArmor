@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Versioning;
 using HarmonyLib;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
@@ -55,6 +56,7 @@ namespace LastingArmor
 
         private LastingArmorConfig LoadConfiguration(ICoreAPI api)
         {
+            // TODO Loading the config file should check versions in future
             ModConfig = api.LoadModConfig<LastingArmorConfig>("LastingArmorConfig.json");
             //try
             //{
@@ -113,6 +115,7 @@ namespace LastingArmor
 
     public class LastingArmorConfig
     {
+        public int ConfigVersion { get; set; } = 1; // Version of the config file
         public string CommentScaling { get; set; } = "Setting EnableWorldDurabilityScaling to true makes the mod ignore DurabilityMultiplier."; // Comment for the config file
         public int DurabilityMultiplier { get; set; } = 20; // Default multiplier
         public bool EnableWorldDurabilityScaling { get; set; } = false; // Default setting to enable durability scaling
